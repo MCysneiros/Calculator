@@ -2,7 +2,7 @@ const defaultResult = 0;
 let currentResult = defaultResult;
 let logEntries = [];
 
-function getUserNumberinput() {
+function getUserNumberInput() {
   return parseInt(userInput.value);
 }
 
@@ -29,7 +29,7 @@ function writeToLog(
 }
 
 function add() {
-  const enteredNumber = getUserNumberinput();
+  const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
   currentResult += enteredNumber;
   createAndWriteLog('+', initialResult, enteredNumber);
@@ -37,7 +37,7 @@ function add() {
 }
 
 function subtract() {
-  const enteredNumber = getUserNumberinput();
+  const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
   currentResult -= enteredNumber;
   createAndWriteLog('-', initialResult, enteredNumber);
@@ -45,7 +45,7 @@ function subtract() {
 }
 
 function multiply() {
-  const enteredNumber = getUserNumberinput();
+  const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
   currentResult *= enteredNumber;
   createAndWriteLog('*', initialResult, enteredNumber);
@@ -53,7 +53,7 @@ function multiply() {
 }
 
 function divide() {
-  const enteredNumber = getUserNumberinput();
+  const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
   currentResult /= enteredNumber;
   createAndWriteLog('/', initialResult, enteredNumber);
