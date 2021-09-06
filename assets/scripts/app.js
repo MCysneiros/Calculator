@@ -30,10 +30,11 @@ function writeToLog(
 
 function calculateResult(calculationType) {
   if (
-    calculationType !== 'add' &&
-    calculationType !== 'subtract' &&
-    calculationType !== 'multiply' &&
-    calculationType !== 'divide'
+    (calculationType !== 'add' &&
+      calculationType !== 'subtract' &&
+      calculationType !== 'multiply' &&
+      calculationType !== 'divide') ||
+    !enteredNumber
   ) {
     return;
   } else {
