@@ -28,36 +28,51 @@ function writeToLog(
   console.log(logEntries);
 }
 
+function calculateResult(calculationType) {
+  if (
+    calculationType !== 'add' &&
+    calculationType !== 'subtract' &&
+    calculationType !== 'multiply' &&
+    calculationType !== 'divide'
+  ) {
+    return;
+  } else {
+    const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult;
+    let mathOperator;
+
+    if (calculationType === 'add') {
+      currentResult += enteredNumber;
+      mathOperator = '+';
+    } else if (calculationType === 'subtract') {
+      currentResult -= enteredNumber;
+      mathOperator = '-';
+    } else if (calculationType === 'multiply') {
+      currentResult *= enteredNumber;
+      mathOperator = '*';
+    } else if (calculationType === 'divide') {
+      currentResult /= enteredNumber;
+      mathOperator = '/';
+    }
+    createAndWriteLog(mathOperator, initialResult, enteredNumber);
+    writeToLog(calculationType, initialResult, enteredNumber, currentResult);
+  }
+}
+
 function add() {
-  const enteredNumber = getUserNumberInput();
-  const initialResult = currentResult;
-  currentResult += enteredNumber;
-  createAndWriteLog('+', initialResult, enteredNumber);
-  writeToLog('add', initialResult, enteredNumber, currentResult);
+  calculateResult('add');
 }
 
 function subtract() {
-  const enteredNumber = getUserNumberInput();
-  const initialResult = currentResult;
-  currentResult -= enteredNumber;
-  createAndWriteLog('-', initialResult, enteredNumber);
-  writeToLog('subtract', initialResult, enteredNumber, currentResult);
+  calculateResult('subtract');
 }
 
 function multiply() {
-  const enteredNumber = getUserNumberInput();
-  const initialResult = currentResult;
-  currentResult *= enteredNumber;
-  createAndWriteLog('*', initialResult, enteredNumber);
-  writeToLog('multiply', initialResult, enteredNumber, currentResult);
+  calculateResult('multiply');
 }
 
 function divide() {
-  const enteredNumber = getUserNumberInput();
-  const initialResult = currentResult;
-  currentResult /= enteredNumber;
-  createAndWriteLog('/', initialResult, enteredNumber);
-  writeToLog('divide', initialResult, enteredNumber, currentResult);
+  calculateResult('divide');
 }
 
 addBtn.addEventListener('click', add);
